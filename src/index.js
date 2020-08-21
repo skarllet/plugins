@@ -3,10 +3,10 @@ const create = () => {
   
   const use = name => plugins[name]
   
-  const register = async ({ name, setup }) => plugins[name] = await setup({ use })
+  const register = async ({ name, setup }, config = null) => plugins[name] = await setup({ use, config })
   
   return {
-  	register,
+    register,
     use
   }
 }
